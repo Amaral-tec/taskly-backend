@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.amaral.taskly.dto.response.ErrorObjectResponseDTO;
+import com.amaral.taskly.shared.dto.ErrorObjectResponseDTO;
 
 import lombok.extern.slf4j.Slf4j;
 

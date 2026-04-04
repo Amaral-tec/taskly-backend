@@ -15,14 +15,14 @@ import java.util.Optional;
 import java.util.UUID;
 
 import com.amaral.taskly.BusinessException;
-import com.amaral.taskly.dto.request.CalendarRequestDTO;
-import com.amaral.taskly.dto.response.CalendarResponseDTO;
-import com.amaral.taskly.enums.CalendarStatus;
-import com.amaral.taskly.enums.RecurrenceType;
-import com.amaral.taskly.model.Calendar;
-import com.amaral.taskly.model.User;
-import com.amaral.taskly.repository.CalendarRepository;
-import com.amaral.taskly.service.CalendarService;
+import com.amaral.taskly.calendar.dto.CalendarRequestDTO;
+import com.amaral.taskly.calendar.dto.CalendarResponseDTO;
+import com.amaral.taskly.calendar.enums.CalendarStatus;
+import com.amaral.taskly.calendar.enums.RecurrenceType;
+import com.amaral.taskly.calendar.model.Calendar;
+import com.amaral.taskly.calendar.repository.CalendarRepository;
+import com.amaral.taskly.calendar.service.CalendarService;
+import com.amaral.taskly.user.model.User;
 
 import jakarta.persistence.TypedQuery;
 import jakarta.persistence.criteria.CriteriaBuilder;

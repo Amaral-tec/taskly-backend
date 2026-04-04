@@ -1,57 +1,86 @@
 taskly/
 ├── src/
 │ ├── main/
-│ │ ├── java/com/taskly/ # Java source code
-│ │ │ ├── constant/
-│ │ │ │		└─ ResponseMessages
-│ │ │ ├── enums/
-│ │ │ │     ├─ CalendarStatus
-│ │ │ │     └─ RecurrenceType
-│ │ │ ├── controller/ # REST controllers
-│ │ │ │		├─ AccessController
-│ │ │ │		├─ AuthenticationController
-│ │ │ │		├─ CalendarController
-│ │ │ │		└─ UserController
-│ │ │ ├── dto/ 
-│ │ │ │     ├─ request/
-│ │ │ │		│   ├─ AccessRequestDTO
-│ │ │ │		│   ├─ CalendarRequestDTO
-│ │ │ │		│   ├─ CalendarSearchRequestDTO
-│ │ │ │     └─ response/ 
-│ │ │ │		    ├─ AccessResponseDTO
-│ │ │ │		    ├─ CalendarResponseDTO
-│ │ │ │		    └─ ErrorObjectResponseDTO
-│ │ │ ├── event/
-│ │ │ │    └─ ErrorEvent -----------------> extends ApplicationEvent
-│ │ │ ├── listener/
-│ │ │ │    └─ ErrorEventListener
-│ │ │ ├── mapper/
-│ │ │ ├── model/ # JPA entities
-│ │ │ │		├─ Access ---------------------> implements GrantedAuthority
-│ │ │ │		├─ Calendar
-│ │ │ │		├─ User -----------------------> implements UserDetails
-│ │ │ │		└─ UserProfile
-│ │ │ ├── repository/ ---------------------> extends JpaRepository
-│ │ │ │		├─ AccessRepository
-│ │ │ │		├─ CalendarRepository
-│ │ │ │		├─ UserRepository
-│ │ │ │		└─ UserProfileRepository
-│ │ │ ├── security
-│ │ │ │		├─ JwtAuthenticationFilter ----> extends OncePerRequestFilter
-│ │ │ │		├─ JwtUtils
-│ │ │ │		└─ SecurityConfig
-│ │ │ ├── service
-│ │ │ │		├─ AccessService
-│ │ │ │		├─ CalendarService
-│ │ │ │		├─ CustomUserDetailsService ---> implements UserDetailsService
-│ │ │ │		├─ EmailService
-│ │ │ │		└─ UserService
-│ │ │ └── validation
-│ │ │ 		├─ DateRange
-│ │ │ 		└─ DateRangeValidator
-│ │ ├── resources/
-│ │ ├── application.yml # environment configs
-│ │ └── db/migration/ # Flyway scripts
-│ └── test/ # unit and integration tests
+│ │ ├── java/com/taskly/
+│ │ │
+│ │ │ ├── access/
+│ │ │ │    ├── controller/
+│ │ │ │    │     └── AccessController
+│ │ │ │    ├── service/
+│ │ │ │    │     └── AccessService
+│ │ │ │    ├── repository/
+│ │ │ │    │     └── AccessRepository
+│ │ │ │    ├── model/
+│ │ │ │    │     └── Access -----------------> implements GrantedAuthority
+│ │ │ │    └── dto/
+│ │ │ │          ├── AccessRequestDTO
+│ │ │ │          └── AccessResponseDTO
+│ │ │ │
+│ │ │ ├── auth/
+│ │ │ │    ├── controller/
+│ │ │ │    │     └── AuthenticationController
+│ │ │ │    └── service/
+│ │ │ │          └── CustomUserDetailsService ---> implements UserDetailsService
+│ │ │ │
+│ │ │ ├── calendar/
+│ │ │ │    ├── controller/
+│ │ │ │    │     └── CalendarController
+│ │ │ │    ├── service/
+│ │ │ │    │     └── CalendarService
+│ │ │ │    ├── repository/
+│ │ │ │    │     └── CalendarRepository
+│ │ │ │    ├── model/
+│ │ │ │    │     └── Calendar
+│ │ │ │    ├── dto/
+│ │ │ │    │     ├── CalendarRequestDTO
+│ │ │ │    │     ├── CalendarSearchRequestDTO
+│ │ │ │    │     └── CalendarResponseDTO
+│ │ │ │    └── enums/
+│ │ │ │          ├── CalendarStatus
+│ │ │ │          └── RecurrenceType
+│ │ │ │
+│ │ │ ├── user/
+│ │ │ │    ├── controller/
+│ │ │ │    │     └── UserController
+│ │ │ │    ├── service/
+│ │ │ │    │     ├── UserService
+│ │ │ │    │     └── EmailService
+│ │ │ │    ├── repository/
+│ │ │ │    │     ├── UserRepository
+│ │ │ │    │     └── UserProfileRepository
+│ │ │ │    └── model/
+│ │ │ │          ├── User -----------------------> implements UserDetails
+│ │ │ │          └── UserProfile
+│ │ │ │
+│ │ │ ├── shared/
+│ │ │ │    ├── constant/
+│ │ │ │    │     └── ResponseMessages
+│ │ │ │    ├── dto/
+│ │ │ │    │     └── ErrorObjectResponseDTO
+│ │ │ │    ├── event/
+│ │ │ │    │     └── ErrorEvent -----------------> extends ApplicationEvent
+│ │ │ │    ├── listener/
+│ │ │ │    │     └── ErrorEventListener
+│ │ │ │    ├── mapper/
+│ │ │ │    └── validation/
+│ │ │ │          ├── DateRange
+│ │ │ │          └── DateRangeValidator
+│ │ │ │
+│ │ │ ├── security/
+│ │ │ │    ├── JwtAuthenticationFilter ---------> extends OncePerRequestFilter
+│ │ │ │    ├── JwtUtils
+│ │ │ │    └── SecurityConfig
+│ │ │ │
+│ │ │ ├── config/
+│ │ │ │
+│ │ │ └── TasklyApplication
+│ │ │
+│ │ └── resources/
+│ │      ├── application.yml
+│ │      └── db/
+│ │           └── migration/
+│ │
+│ └── test/
+│
 ├── pom.xml
-└── README.md	
+└── README.md

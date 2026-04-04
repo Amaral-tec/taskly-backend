@@ -1,11 +1,12 @@
 package com.amaral.taskly.unit.service;
 
 import com.amaral.taskly.BusinessException;
-import com.amaral.taskly.dto.request.AccessRequestDTO;
-import com.amaral.taskly.dto.response.AccessResponseDTO;
-import com.amaral.taskly.model.Access;
-import com.amaral.taskly.repository.AccessRepository;
-import com.amaral.taskly.service.AccessService;
+import com.amaral.taskly.access.dto.AccessRequestDTO;
+import com.amaral.taskly.access.dto.AccessResponseDTO;
+import com.amaral.taskly.access.model.Access;
+import com.amaral.taskly.access.repository.AccessRepository;
+import com.amaral.taskly.access.service.AccessService;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
